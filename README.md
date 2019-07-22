@@ -9,4 +9,9 @@ Boilerplate for REST API using nodejs, for my personal project. You need to crea
     Yarn
     Yarn Start
 ----
+**How To Run Test with Mocha and Chai**
+----
+
+    Yarn test
+----
 **Author : Hubertus Putu**

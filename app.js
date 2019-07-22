@@ -29,3 +29,5 @@ db.once('open', function () {
 app.listen(config.PORT, () => {
     console.log('Server is up and running on port number ' + config.PORT)
 })
+
+export default app
