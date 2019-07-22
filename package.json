@@ -1,17 +1,20 @@
 {
   "name": "node-rest-boilerplate",
   "version": "1.0.0",
-  "description": "REST Boilerplate for personal project",
+  "description": "Nodejs REST API Boilerplate",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require babel-register tests/*.js --exit",
+    "start": "nodemon --exec babel-node --presets babel-preset-env ./app.js"
   },
   "author": "Hubertus Putu",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mocha": "^6.2.0",
