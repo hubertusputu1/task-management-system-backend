@@ -24,6 +24,8 @@ app.use(session({ secret: 'passport-tutorial', cookie: { maxAge: 60000 }, resave
 
 // models and routes
 require('./models/users.model')
+require('./models/comments.model')
+require('./models/tasks.model')
 require('./config/passport')
 app.use(require('./routes'))
 

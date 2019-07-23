@@ -2,11 +2,17 @@ import mongoose from 'mongoose'
 import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
 
+import { USER_ROLES_ADMIN, USER_ROLES_EMPLOYEE } from '../utils/constants'
+
 const { Schema } = mongoose;
 
 const UsersSchema = new Schema({
   email: String,
   name: String,
+  role: {
+    type: String,
+    enum: [ USER_ROLES_ADMIN, USER_ROLES_EMPLOYEE ]
+  },
   hash: String,
   salt: String,
 });
