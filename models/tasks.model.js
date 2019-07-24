@@ -16,13 +16,30 @@ const TasksSchema = new Schema({
     enum: [ STATUS_NEW, STATUS_ARCHIVED, STATUS_COMPLETED, STATUS_IN_PROGRESS ]
   },
   title: {
-    type: String
+    type: String,
+    required: true,
+    default: ''
   },
   description: {
-    type: String
-  }
+    type: String,
+    default: ''
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
+    required: true
+  },
 }, {
   timestamps: true
 });
+
+TasksSchema.methods.showData = function() {
+  return {
+    _id: this._id,
+    status: this.status,
+    title: this.title,
+    createdBy: this.createdBy
+  };
+};
 
 mongoose.model('Tasks', TasksSchema);

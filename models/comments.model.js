@@ -6,18 +6,28 @@ const CommentsSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Users',
-    default: ''
+    required: true
   },
   taskId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Tasks',
-    default: ''
+    required: true
   },
   text: {
-    type: String
+    type: String,
+    required: true
   }
 }, {
   timestamps: true
 });
+
+CommentsSchema.methods.showData = function() {
+  return {
+    _id: this._id,
+    userId: this.userId,
+    taskId: this.taskId,
+    text: this.text
+  };
+};
 
 mongoose.model('Comments', CommentsSchema);
