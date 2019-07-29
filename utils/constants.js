@@ -1,9 +1,9 @@
 module.exports = {
-    STATUS_NEW: "NEW",
-    STATUS_IN_PROGRESS: "IN_PROGRESS",
-    STATUS_COMPLETED: "COMPLETED",
-    STATUS_ARCHIVED: "ARCHIVED",
+    STATUS_NEW: "new",
+    STATUS_IN_PROGRESS: "inProgress",
+    STATUS_COMPLETED: "completed",
+    STATUS_ARCHIVED: "archived",
 
-    USER_ROLES_ADMIN: "ADMIN",
-    USER_ROLES_EMPLOYEE: "EMPLOYEE"
+    USER_ROLES_ADMIN: "admin",
+    USER_ROLES_EMPLOYEE: "employee"
 }
