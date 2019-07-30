@@ -9,7 +9,7 @@ const router = express.Router();
 router.route('/')
 .post(auth.optional, UsersController.createUser)
 
-router.route('/login')
+router.route('/signin')
 .post(auth.optional, UsersController.login)
 
 router.route('/current')
