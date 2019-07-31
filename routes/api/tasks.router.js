@@ -11,6 +11,7 @@ router.route('/')
 .post(auth.required, TasksController.createTask)
 
 router.route('/:id')
+.get(auth.required, TasksController.getSingleTask)
 .put(auth.required, TasksController.updateTask)
 .delete(auth.required, TasksController.deleteTask)
 
