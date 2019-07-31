@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 
+import { STATUS_NEW, STATUS_ARCHIVED, STATUS_COMPLETED, STATUS_IN_PROGRESS } from '../utils/constants'
+
 const Users = mongoose.model('Users');
 const Tasks = mongoose.model('Tasks');
 const Comments = mongoose.model('Comments');
@@ -8,7 +10,7 @@ class TasksController {
     static createTask(req, res, next) {
         const { body: { task } } = req;
 
-        if(!user.title) {
+        if(!task.title) {
             return res.status(422).json({
                 errors: {
                     title: 'is required',
@@ -16,14 +18,14 @@ class TasksController {
             });
         }
         
-        if(!user.createdBy) {
+        if(!task.createdBy) {
             return res.status(422).json({
                 errors: {
                     createdBy: 'is required',
                 },
             });
         }
-
+        
         const newTask = new Tasks(task);
 
         return newTask.save()
@@ -49,6 +51,13 @@ class TasksController {
         return Tasks.findByIdAndRemove(id)
         .then(_ => Comments.deleteMany({taskId: id})
         .then(_ => res.status(200).json({message: 'task deleted'})))
+    }
+
+    static getSingleTask(req, res, next) {
+        const { params: { id } } = req
+    
+        return Tasks.findById(id)
+        .then(task => res.status(200).json({task: task}))
     }
 }
 
