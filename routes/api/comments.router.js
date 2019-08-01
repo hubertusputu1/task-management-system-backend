@@ -11,6 +11,6 @@ router.route('/')
 .post(auth.required, CommentsController.createComment)
 
 router.route('/:id')
-.delete(auth.optional, CommentsController.deleteComment)
+.delete(auth.required, CommentsController.deleteComment)
 
 module.exports = router;
