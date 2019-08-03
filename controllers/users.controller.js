@@ -70,7 +70,7 @@ class UsersController {
                 return res.json({ user: user.toAuthJSON() });
             }
 
-            return status(400).info;
+            return res.status(400).json(info);
         })(req, res, next);
     }
 
