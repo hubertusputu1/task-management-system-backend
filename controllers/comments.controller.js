@@ -7,7 +7,7 @@ class CommentsController {
    static createComment(req, res, next) {
       const { body: { comment } } = req;
 
-        if(!user.userId) {
+        if(!comment.userId) {
             return res.status(422).json({
                 errors: {
                     userId: 'is required',
@@ -15,7 +15,7 @@ class CommentsController {
             });
         }
         
-        if(!user.taskId) {
+        if(!comment.taskId) {
             return res.status(422).json({
                 errors: {
                     taskId: 'is required',
@@ -23,7 +23,7 @@ class CommentsController {
             });
         }
 
-        if(!user.text) {
+        if(!comment.text) {
             return res.status(422).json({
                 errors: {
                     text: 'is required',
