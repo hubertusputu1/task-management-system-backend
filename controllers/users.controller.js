@@ -86,6 +86,18 @@ class UsersController {
             return res.json({ user: user.toAuthJSON() });
         });
     }
+
+    static getUsers(req, res, next) {
+
+        return Users.find({}, {_id: 1, email: 1, name:1, userRole:1})
+        .then((users) => {
+            if(!users) {
+                return res.sendStatus(400);
+            }
+
+            return res.json({ users });
+        });
+    }
 }
 
 export default UsersController
