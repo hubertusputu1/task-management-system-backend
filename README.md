@@ -9,7 +9,7 @@ features of this backend:
  - Update Status of Task
 
 ## Frontend 
-backend available on [task management system frontend](https://github.com/hubertusputu1/task-management-system-frontend).
+frontend available on [task management system frontend](https://github.com/hubertusputu1/task-management-system-frontend).
 
 ## How To Run 
 
