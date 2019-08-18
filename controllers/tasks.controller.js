@@ -34,9 +34,9 @@ class TasksController {
 
     static updateTask(req, res, next) {
         const { params: { id } } = req
-        const update = { $set: req.body }
-    
-        return Tasks.findByIdAndUpdate(id, update)
+        const update = { $set: req.body.task }
+        
+        return Tasks.findByIdAndUpdate(id, update, { new: true })
         .then(task => res.status(200).json({task: task}))
     }
 
